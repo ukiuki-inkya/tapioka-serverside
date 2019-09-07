@@ -1,6 +1,6 @@
 class TapisController < ApplicationController
   def create
-    return render json: { message: "image param is required" }, status: :bad_request if params[:image].empty?
+    return render json: { message: "image param is required" }, status: :bad_request if params[:image].nil?
 
     photo = params[:image]
     @result = yama(photo)
