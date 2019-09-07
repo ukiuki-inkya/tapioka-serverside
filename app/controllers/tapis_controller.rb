@@ -35,7 +35,7 @@ class TapisController < ApplicationController
       }]
     }.to_json
 
-    url = 'https://vision.googleapis.com/v1/images:annotate?key='
+    url = "https://vision.googleapis.com/v1/images:annotate?key="
     uri = URI.parse(url)
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
@@ -47,7 +47,7 @@ class TapisController < ApplicationController
   end
 
   def ishi(result)
-    labels = JSON.parse(result)['labelAnnotations']
+    labels = result['responses'][0]['labelAnnotations']
 
     @yasashi = 0.2
     @reisei = 0.2
